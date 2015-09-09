@@ -7,11 +7,16 @@ class Person
 	end
 
 	def send_message
-		return BASE ** @secret % MODULUS
+		calculate_key(BASE)
 	end
 
 	def compute_message(msg)
-		msg ** @secret % MODULUS
+		calculate_key(msg)
+	end
+
+	private
+	def calculate_key(x)
+		return x ** @secret % MODULUS
 	end
 
 end 
